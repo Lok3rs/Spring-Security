@@ -12,8 +12,9 @@
 <div class="container">
     <div class="jumbotron">
         <h1>My Custom Login Page</h1>
-
         <form th:action="@{/authenticateTheUser}" method="post">
+
+            <input type="hidden" th:value="${_csrf.token}" th:name="${_csrf.parameterName}">
 
             <div th:if="${param.error}">
                 <p class="text-danger">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
